@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Global Bizpro</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    #kunjungan {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1s ease-in-out;
+    }
+
+    body::after {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      z-index: -1;
+      content: url('kunjungan1.jpg') url('kunjungan2.jpg') url('kunjungan3.jpg') url('Gakumdu.jpg');
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <div class="border-b border-gray-200 bg-gray-100 px-4 py-2 text-gray-900">
+    <p class="text-center font-medium">
+      MENGATASI PAJAK
+      <a href="#" class="inline-block underline"> TANPA DIBAJAK </a>
+    </p>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="flex items-center justify-between px-5 py-5 shadow-sm bg-white">
+    <div class="flex items-center space-x-4">
+      <img src="dmj.png" alt="Logo" class="w-25 h-30 object-cover square-full" />
+      <span class="text-xl font-bold">Global Bizpro</span>
+    </div>
+    <ul class="hidden md:flex space-x-8 text-sm font-medium">
+      <li><a href="#home" class="hover:text-gray-500 transition">Home</a></li>
+      <li><a href="#Layanan" class="hover:text-gray-500 transition">Layanan</a></li>
+      <li><a href="#contact" class="hover:text-gray-500 transition">Kontak</a></li>
+      <li><a href="#" class="hover:text-gray-500 transition">About</a></li>
+      <li><a href="#" class="hover:text-gray-500 transition">Portfolio</a></li>
+      <li><a href="#" class="hover:text-gray-500 transition">Contact</a></li>
+    </ul>
+    <div class="flex items-center space-x-4">
+      <button class="px-4 py-2 text-sm font-medium bg-gray-900 text-white rounded-full hover:bg-gray-700 transition">
+        Sign In
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="px-6 md:px-12 py-20 bg-black-900 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+      Solusi Profesional untuk Perpajakan, Audit, dan Laporan Keuangan
+    </h1>
+    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+      Kami adalah mitra terpercaya Anda dalam menghadapi kompleksitas perpajakan, audit, dan laporan keuangan.
+      Melalui layanan yang profesional dan berbasis kepatuhan, kami membantu individu maupun perusahaan dalam merencanakan dan melaksanakan kewajiban pajak secara efisien,
+      melakukan audit internal maupun eksternal yang transparan dan objektif, serta menyusun laporan keuangan yang akurat dan sesuai standar.
+    </p>
+    
+  </section>
+
+  <!-- SLIDER -->
+  <section id="kunjungan" class="h-[500px] bg-cover bg-center flex items-center justify-center text-white text-center" style="background-image: url('kunjunga/nkunjungan1.jpg');">
+    <div class="bg-black/40 w-full h-full flex items-center justify-center">
+      <!-- teks opsional -->
+    </div>
+  </section>
+  <script>
+    const kunjunganSection = document.getElementById('kunjungan');
+    const slideImages = [
+      'kunjungan/kunjungan1.jpg',
+      'kunjungan/kunjungan2.jpg',
+      'kunjungan/kunjungan3.jpg',
+      'kunjungan/Gakumdu.jpg'
+    ];
+    let current = 0;
+  
+    // Preload all images
+    function preloadImages(urls) {
+      urls.forEach(url => {
+        const img = new Image();
+        img.src = url;
+      });
+    }
+  
+    window.addEventListener('load', () => {
+      preloadImages(slideImages);
+      kunjunganSection.style.backgroundImage = `url('${slideImages[0]}')`;
+    });
+  
+    function changeSlide() {
+      const nextImage = new Image();
+      current = (current + 1) % slideImages.length;
+      nextImage.src = slideImages[current];
+      nextImage.onload = () => {
+        kunjunganSection.style.backgroundImage = `url('${slideImages[current]}')`;
+      };
+    }
+  
+    setInterval(changeSlide, 4000);
+  </script>
+  
+
+  <!-- PROFIL PIMPINAN -->
+  <section id="home" class="py-20 px-6 md:px-12 bg-white text-center opacity-0 translate-y-10 transition-all duration-700 ease-in-out fade-in-section">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Profil Pimpinan</h2>
+    <div class="flex flex-col md:flex-row items-center justify-center gap-10 max-w-5xl mx-auto">
+      <img src="JSN.jpeg" alt="Foto Pimpinan" class="w-52 h-52 object-cover rounded-full shadow-md" />
+      <div class="text-left max-w-xl">
+        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Jansen Sinaga, SE., MM, Ak., CA., CPA., BKP., CMA., CSRS, CSRA, CSP, CERA., CAPF, CACP</h3>
+        <p class="text-gray-600 text-md">
+          Seorang Profesional di bidang akuntansi dan perpajakan, dengan pengalaman lebih dari 20 tahun di industri keuangan dan audit.
+          Beliau telah menangani berbagai klien dari sektor publik maupun swasta, dan dikenal atas integritas serta ketelitiannya dalam setiap proses.
+          Komitmennya adalah memberikan solusi yang strategis, akurat, dan sesuai dengan regulasi yang berlaku.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAYANAN -->
+  <!-- Layanan SECTION -->
+<section id="Layanan" class="py-20 px-6 md:px-12 bg-white text-center opacity-0 translate-y-10 transition-all duration-700 ease-in-out fade-in-section">
+  <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Layanan Kami</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+    
+    <!-- Layanan 1 -->
+    <div class="service-item text-left p-6 border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition">
+      <img src="layanan/tax.jpg" alt="Layanan 1" class="w-73 h-60 object-cover rounded-lg mb-4">
+      <h3 class="text-2xl font-semibold text-gray-800 mb-2"> Konsultasi Pajak</h3>
+      <p class="text-gray-600">
+        Kami memberikan layanan konsultasi perpajakan yang komprehensif untuk individu dan perusahaan dalam merencanakan kewajiban pajak secara efisien.
+      </p>
+    </div>
+
+    <!-- Layanan 2 -->
+    <div class="service-item text-left p-6 border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition">
+      <img src="layanan/accounting.png" alt="Layanan 2" class="w-73 h- 60 object-cover rounded-lg mb-4">
+      <h3 class="text-2xl font-semibold text-gray-800 mb-2">Layanan 2: Audit Keuangan</h3>
+      <p class="text-gray-600">
+        Menyediakan layanan audit keuangan yang transparan dan objektif untuk memastikan akurasi laporan keuangan perusahaan.
+      </p>
+    </div>
+
+    <!-- Layanan 3 -->
+    <div class="service-item text-left p-6 border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition">
+      <img src="layanan/audit.jpg" alt="Layanan 3" class="w-73  h-60 object-cover rounded-lg mb-4">
+      <h3 class="text-2xl font-semibold text-gray-800 mb-2">Layanan 3: Penyusunan Laporan Keuangan</h3>
+      <p class="text-gray-600">
+        Menyusun laporan keuangan sesuai dengan standar akuntansi dan perpajakan yang berlaku untuk memberikan informasi yang akurat dan relevan.
+      </p>
+    </div>
+    
+  </div>
+</section>
+
+
+  <!-- FADE IN ANIMATION -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-10');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const sections = document.querySelectorAll('.fade-in-section');
+    sections.forEach(sec => observer.observe(sec));
+  </script>
+  <div class="flex justify-center gap-4">
+    <a href="#layanan" class="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition">
+      Lihat Layanan
+    </a>
+    <a href="#contact" class="px-6 py-3 border border-gray-400 text-gray-900 rounded-full hover:bg-gray-100 transition">
+      Hubungi Kami
+    </a>
+  </div>
+</body>
+</html>
